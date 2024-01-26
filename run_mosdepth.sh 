@@ -1,0 +1,14 @@
+!# bin/bash
+
+## Define inputs
+
+alignment_file="" #put a path to bam or cram file 
+bed_file="resources/exome_capture_matched_intervals.bed" #path to bed file with intervals
+fasta=""
+fai=""
+dict=""
+
+prefix=""
+
+
+mosdepth -n -t 4 --by $bed_file -m --fasta $fasta $prefix $cram
