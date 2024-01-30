@@ -3,7 +3,7 @@ The repository contains scripts to run the pipeline that estimates mosaic Loss o
 To run on dnanexus wdl script is available as well.
 
 # Requirements
-1. mosdepth tool should be installed (https://github.com/brentp/mosdepth)
+1. mosdepth tool version 0.3.3 should be installed (https://github.com/brentp/mosdepth)
 2. R
 3. tidyr library
 
@@ -11,7 +11,7 @@ To run on dnanexus wdl script is available as well.
 1. Bed file with intervals in a genome (exons) in which coverage will be calculated
 2. Bed file with the same intervals but with the group for each interval in a separate column. Groups are created after matching exons on their GC content and are used for coverage normalization.
 3. Bam/Cram Exome sequencing alignment file with index files.
-4. Reference genome (that was used for the alignment) with indexes (.fasta, .fai, and .dict)
+4. Reference genome (the one used for the alignment).
 
 # Pipeline
 ## 1. Calculate the coverage in each exon from bed file
