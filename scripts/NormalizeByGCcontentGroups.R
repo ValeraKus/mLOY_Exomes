@@ -6,7 +6,7 @@ groups_file <- args[2]
 print(groups_file)
 
 
-#file <- list.files(".", pattern = ".regions.bed.gz$")
+
 file <- args[1]
 
 moscov <- read.table(gzfile(file))
