@@ -12,6 +12,10 @@ To run on dnanexus wdl script is available as well.
 2. Bed file with the same intervals but with the group for each interval in a separate column. Groups are created after matching exons on their GC content and are used for coverage normalization.
 3. Bam/Cram Exome sequencing alignment file with index files.
 4. Reference genome (the one used for the alignment).
+5. GTF file with human genome annotation - https://ftp.ensembl.org/pub/current_gtf/homo_sapiens/Homo_sapiens.GRCh38.112.chr.gtf.gz
+
+
+
 
 # Pipeline
 ## 1. Calculate the coverage in each exon from bed file
