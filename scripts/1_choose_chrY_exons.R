@@ -4,7 +4,7 @@
 library(tidyverse)
 
 #set working directory
-setwd("./")
+setwd("~/Desktop/Work/mLOY_Exomes/")
 
 #exome caprute intervals (.bed)
 #example for exome capture used in the UKB
@@ -66,6 +66,14 @@ exome_capture_single_genes <- exome_capture[exome_capture$V2 %in% single_genes_c
 
 #write the result
 write.table(exome_capture_single_genes, "resources/xgen_plus_spikein_chrY_singleCopyGenes.GRCh38.bed", quote=F, sep="\t")
+
+## In this example with exome capture used in the ukb we end up with 184 exons. 
+## In our paper we further filtered this list of exons by looking at the coverage of each exon
+## in people who have no evidence of mLOY as identified by PAR-LOY method. We excluded exons that on average
+## deviated higher than median +- igr.
+## The final list of  chosenexons on chrY is saved in resources/exome_capture_matched_intervals.bed
+## (together with matched autosomal exons). It can be directry used starting from step3 (3_run_mosdepth.sh) in case the exome capture 
+##is the same as in the UKB. But the method should perform well enough without this additional optimization step.
 
 
 
