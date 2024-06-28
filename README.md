@@ -5,7 +5,8 @@ To run on dnanexus wdl script is available as well.
 # Requirements
 1. mosdepth tool version 0.3.3 should be installed (https://github.com/brentp/mosdepth)
 2. R
-3. tidyr library
+3. tidyverse library
+4. If you want to perform the selection of exons from your exome capture you also need Biostrings and MatchIt R libraries. And hg38 human genome fasta file.
 
 # Inputs
 1. Bed file with intervals in a genome (exons) in which coverage will be calculated
@@ -16,7 +17,7 @@ To run on dnanexus wdl script is available as well.
 
 
 ### If you have exome capture like in the UKB, or if you want to run MosCoverY in the UKB, you can skip step1 and step 2.
-### Step 1 and 2 are needed to choose exons on chrY and autosomal exons for coverage normalisation.
+### Steps 1 and 2 are needed to choose exons on chrY and autosomal exons for coverage normalization.
 ### For the UKB these steps are done as described in the paper and the result is in resources/exome_capture_matched_intervals.bed
 ### with the selected exons to use for the coverage calculation.
 
