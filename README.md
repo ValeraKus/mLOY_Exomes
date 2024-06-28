@@ -15,6 +15,11 @@ To run on dnanexus wdl script is available as well.
 5. GTF file with human genome annotation - https://ftp.ensembl.org/pub/current_gtf/homo_sapiens/Homo_sapiens.GRCh38.112.chr.gtf.gz
 
 
+### If you have exome capture like in the UKB, or if you want to run MosCoverY in the UKB, you can skip step1 and step 2.
+### Step 1 and 2 are needed to choose exons on chrY and autosomal exons for coverage normalisation.
+### For the UKB these steps are done as described in the paper and the result is in resources/exome_capture_matched_intervals.bed
+### with the selected exons to use for the coverage calculation.
+
 
 
 # Pipeline
