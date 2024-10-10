@@ -28,5 +28,5 @@ result <- moscov %>% merge(groups, by=c("CHR", "start", "end"))   %>%
   summarize(chrY_norm_median=median(chrY_norm)) %>% 
   mutate(eid=eid) %>% select(eid, chrY_norm_median)
 
-
+dir.create(file.path("./out_files/"), showWarnings = FALSE)
 write.table(result, paste0("./out_files/", "normYcov.", eid, ".txt"), quote = F, row.names = F, sep="\t", col.names = F)

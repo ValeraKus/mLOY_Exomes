@@ -1,0 +1,72 @@
+---
+title: "Mosaic loss of the Y chromosome estimation"
+author: "Valeriia Timonina"
+date: "2024-10-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+require(ggExtra)
+```
+
+
+## Load the data
+
+Load the file with aggregated results for the normalised chrY coverage (result of 5_aggregate_results.sh)
+
+
+```{r}
+loy_data <- read.table("", header=T, sep="\t") #set a path here
+
+head(loy_data)
+```
+
+
+## set a threshold to define binary mLOY trait as Q1-1.5*IQR
+
+
+```{r}
+loy_data$chrY_norm_scaled <- loy_data$chrY_norm - median(loy_data$chrY_norm) + 0.5 # rescale
+threshold <- quantile(loy_data$chrY_norm_scaled, c(.25))-1.5*IQR(loy_data$chrY_norm_scaled) # set a threshold to define binary mLOY
+
+loy_data$mLOY_bin <- ifelse(loy_data$chrY_norm_scaled < threshold, 1, 0) # everyone with chrY coverage below threshold are mLOY cases
+```
+
+### Visualize 
+
+```{r}
+pl <- ggplot(loy_data, aes(y=chrY_norm_scaled, x=1:length((id))))+
+  geom_point(size=0.5, color="grey76")+
+  geom_hline(yintercept = median(loy_data$chrY_norm_scaled), size=1.5, col="darkred")+
+  geom_hline(yintercept = threshold, col="black", linetype="dashed", linewidth=1.5)+
+  theme_classic()
+ggExtra::ggMarginal(pl, type = "histogram", margins = "y", fill="grey76")
+```
+
+## Convert scaled normalized chrY coverage to the fraction of cells with loss of chrY
+
+We will do it using the formula:
+
+    = 0, if covY >= 0.5 
+CF{ = -2 * covY + 1, if 0 < covY < 0.5
+    = 1, if covY <= 0,
+
+where CF - fraction of cells with LOY; covY - normalized scaled coverage of the Y chromosome.
+
+```{r}
+loy_data$mLOY_CF <- -2 * loy_data$chrY_norm_scaled + 1
+loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled <=0 ,1, loy_data$chrY_norm_scaled)
+loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled >=0.5 ,0, loy_data$chrY_norm_scaled)
+```
+
+
+### Visualize 
+
+```{r}
+ggplot(loy_data, aes(x=chrY_norm_scaled, y=mLOY_CF))+
+  geom_point(color="grey76")+
+  theme_classic()
+```
+
