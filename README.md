@@ -1,7 +1,7 @@
 # mLOY_Exomes
 The repository contains scripts to run the pipeline that estimates mosaic Loss of the Y chromosome from Exome sequencing data.
 To run on dnanexus wdl script is available as well.
-The release doi - DOI: 10.5281/zenodo.14205915 
+The release doi - [![DOI](https://zenodo.org/badge/748587557.svg)](https://doi.org/10.5281/zenodo.14205914) 
 
 # Requirements
 1. mosdepth tool version 0.3.3 should be installed (https://github.com/brentp/mosdepth)
