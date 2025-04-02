@@ -57,8 +57,8 @@ where CF - fraction of cells with LOY; covY - normalized scaled coverage of the 
 
 ```{r}
 loy_data$mLOY_CF <- -2 * loy_data$chrY_norm_scaled + 1
-loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled <=0 ,1, loy_data$chrY_norm_scaled)
-loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled >=0.5 ,0, loy_data$chrY_norm_scaled)
+loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled <=0 ,1, loy_data$mLOY_CF)
+loy_data$mLOY_CF <- ifelse(loy_data$chrY_norm_scaled >=0.5 ,0, loy_data$mLOY_CF)
 ```
 
 
