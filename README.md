@@ -1,4 +1,4 @@
-# mLOY_Exomes
+# MosCoverY: a new method to estimate **mosaic** Loss of **Y** chromosome from NGS sequencing **coverage** data
 The repository contains scripts to run the pipeline that estimates mosaic Loss of the Y chromosome from Exome sequencing data.
 To run on dnanexus wdl script is available as well.
 The release doi - [![DOI](https://zenodo.org/badge/748587557.svg)](https://doi.org/10.5281/zenodo.14205914) 
