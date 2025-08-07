@@ -5,6 +5,12 @@ The repository contains scripts to run the pipeline that estimates mosaic Loss o
 To run on dnanexus wdl script is available as well.
 The release doi - [![DOI](https://zenodo.org/badge/748587557.svg)](https://doi.org/10.5281/zenodo.14205914) 
 
+If you use MosCoverY in your work, please cite:
+**TBA**
+
+If you have any questions or feedback, contact me by email: *valeratimonnia@gmail.com*
+
+
 # Requirements
 1. mosdepth tool version 0.3.3 should be installed (https://github.com/brentp/mosdepth)
 2. R
